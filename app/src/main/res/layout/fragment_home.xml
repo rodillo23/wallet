@@ -61,7 +61,7 @@
                     android:text="$1'576.000"
                     android:textColor="@color/primary_text"
                     android:textSize="26sp"
-                    app:layout_constraintBottom_toTopOf="@+id/notificationButton"
+                    app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
                     app:layout_constraintEnd_toEndOf="@id/guideline3"
                     app:layout_constraintStart_toStartOf="@id/availableBalanceTitleTextView"
                     app:layout_constraintTop_toBottomOf="@id/availableBalanceTitleTextView" />
@@ -110,6 +110,15 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
 
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/notificationBadgeContainer"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:backgroundTint="@android:color/holo_red_dark"
+                    app:cardCornerRadius="5dp"
+                    app:layout_constraintEnd_toEndOf="@id/notificationButton"
+                    app:layout_constraintTop_toTopOf="@id/notificationButton"/>
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -127,9 +136,99 @@
             app:layout_constraintBottom_toTopOf="@id/guideline"
             app:layout_constraintTop_toTopOf="@id/guideline">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="18dp">
 
+                <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                    android:id="@+id/circularProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cpb_background_progressbar_color="@color/divider"
+                    app:cpb_progressbar_color="@color/colorPrimary"
+                    app:cpb_background_progressbar_width="4dp"
+                    app:cpb_round_border="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/percentageText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="70%"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/secondary_text"
+                    app:layout_constraintTop_toTopOf="@id/circularProgress"
+                    app:layout_constraintBottom_toBottomOf="@id/circularProgress"
+                    app:layout_constraintStart_toStartOf="@id/circularProgress"
+                    app:layout_constraintEnd_toEndOf="@id/circularProgress"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/monthlyTransferLimitTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Límite de transferencia mensual"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/primary_text"
+                    android:autoSizeTextType="uniform"
+                    app:layout_constraintStart_toEndOf="@id/circularProgress"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/circularProgress"/>
+
+                <TextView
+                    android:id="@+id/currentAmountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="$70.000"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/circularProgress"
+                    app:layout_constraintTop_toBottomOf="@id/monthlyTransferLimitTitle"
+                    app:layout_constraintEnd_toStartOf="@id/of"
+                    app:layout_constraintHorizontal_bias="0.5"/>
+
+                <TextView
+                    android:id="@+id/of"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="de"
+                    android:fontFamily="@font/montserrat_bold"
+                    app:layout_constraintStart_toEndOf="@id/currentAmountTextView"
+                    app:layout_constraintTop_toTopOf="@id/currentAmountTextView"
+                    app:layout_constraintEnd_toStartOf="@id/maxAmountTextView"
+                    app:layout_constraintHorizontal_bias="0.5"/>
+
+                <TextView
+                    android:id="@+id/maxAmountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$4'500.000"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/of"
+                    app:layout_constraintTop_toTopOf="@id/of"
+                    app:layout_constraintHorizontal_bias="0.5"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/transferTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Transacciones"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/primary_text"
+            android:textSize="22sp"
+            android:layout_marginTop="36dp"
+            app:layout_constraintTop_toBottomOf="@id/tranferLimitAmountCardView"
+            app:layout_constraintStart_toStartOf="@id/balanceCardView"
+            app:layout_constraintEnd_toEndOf="@id/balanceCardView"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
